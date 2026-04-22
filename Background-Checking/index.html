@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Background Checks | Philippines | Discreet & Professional</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0c10;
+      color: #e0e2e6;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .mono {
+      font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+      font-size: 0.85rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    h1, h2, h3 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #f0f2f5;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 1.8rem;
+      border-left: 3px solid #4f7e9e;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #dce3ec;
+    }
+
+    .btn-request {
+      background: #2c3e4e;
+      border: none;
+      color: white;
+      font-family: inherit;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .btn-request:hover {
+      background: #3a5a70;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #4a627a;
+      color: #cbd8e6;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      font-family: inherit;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      border-color: #7e9eb8;
+      color: white;
+    }
+
+    .services-grid, .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .service-card, .package-card {
+      background: #111317;
+      border: 1px solid #23262e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border 0.2s;
+    }
+
+    .service-card:hover, .package-card:hover {
+      border-color: #4f7e9e;
+    }
+
+    .service-icon {
+      font-size: 1.6rem;
+      color: #7f9eb5;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p, .package-card p {
+      color: #b0b8c4;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+
+    .price {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #d4e2f0;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .price small {
+      font-size: 0.8rem;
+      font-weight: normal;
+      color: #8e9eae;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .feature-list li {
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #b9c2cf;
+    }
+
+    .feature-list li i {
+      width: 1rem;
+      color: #6d8faa;
+      font-size: 0.7rem;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      margin: 2.5rem 0 2rem;
+      border-top: 1px solid #20232b;
+      padding-top: 2rem;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #9aaebf;
+      font-size: 0.85rem;
+    }
+
+    .trust-item i {
+      font-size: 1.2rem;
+      color: #6d8faa;
+    }
+
+    .contact-block {
+      background: #0e1015;
+      border: 1px solid #252a33;
+      border-radius: 16px;
+      padding: 1.8rem;
+      margin: 2rem 0 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-line i {
+      color: #7f9eb5;
+      width: 1.2rem;
+    }
+
+    .contact-line a, .contact-line span {
+      color: #d0dbe8;
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .small-note {
+      font-size: 0.7rem;
+      color: #6a7c8f;
+      font-family: monospace;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #20232b;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      color: #8fa0b3;
+      letter-spacing: 0.3px;
+    }
+
+    .hero {
+      margin-bottom: 3rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #b8c4d2;
+      max-width: 650px;
+      margin: 1rem 0 1.8rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #5c6f84;
+      padding: 2rem 0;
+      border-top: 1px solid #1a1e26;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .container {
+        padding: 0 1rem;
+      }
+      .contact-block {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="top-bar">
+    <div class="badge">Background verification specialist · Philippines</div>
+    <div class="badge mono">discreet · confidential · evidence-based</div>
+  </div>
+
+  <div class="hero">
+    <h1>Uncover the Truth.<br>Verify with Confidence.</h1>
+    <p>I provide detailed online background checks and due diligence based in the Philippines. I am proficient in modern investigative tools and follow a proprietary methodology tailored to each client’s needs — including access to local public records, court databases, and NBI clearance verification. My approach prioritizes accuracy, discretion, and actionable results.</p>
+    <a href="mailto:contact.jaed@proton.me?subject=Background%20Check%20Inquiry&body=Hello,%20I%20would%20like%20to%20request%20a%20background%20check.%20Please%20find%20my%20requirements%20below:%0A%0A---%20Clear%20requirements%20---%0A%0A1.%20Full%20name%20and%20aliases%20of%20subject:%0A2.%20Type%20of%20check%20needed%20(Identity%20verification,%20criminal%20records,%20employment,%20etc.):%0A3.%20Urgency%20and%20deadline:%0A4.%20Any%20additional%20details:%0A%0AThank%20you." class="btn-request" id="mainCta"><i class="fas fa-file-signature"></i> Request a Background Check</a>
+  </div>
+
+  <h2>My services include</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-id-card"></i></div>
+      <h3>Identity Verification</h3>
+      <p>I cross‑reference PhilSys ID, driver’s license, passport, and other government IDs against official databases to confirm legal identity and aliases.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
+      <h3>Criminal & Legal Records</h3>
+      <p>I search NBI clearance records, local court dockets (RTC, MTC), and regional trial court databases for pending cases, convictions, and warrants.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+      <h3>Employment & Education Validation</h3>
+      <p>I verify past employment, college degrees (CHED records), TESDA certifications, and professional licenses (PRC) through primary sources.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-globe"></i></div>
+      <h3>Digital Footprint Analysis</h3>
+      <p>I review publicly available online activity, social media presence, and data breach exposure relevant to the Philippine digital landscape.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-chart-simple"></i></div>
+      <h3>Risk Scoring & Reporting</h3>
+      <p>I compile findings into a structured report with clear risk indicators, supporting evidence, and actionable recommendations.</p>
+    </div>
+  </div>
+
+  <h2>Investigation packages (PHP)</h2>
+  <div class="packages-grid">
+    <div class="package-card">
+      <h3>Basic</h3>
+      <div class="price">₱9,500 <small>/ per subject</small></div>
+      <ul class="feature-list">
+        <li><i class="fas fa-check"></i> Identity verification & alias check</li>
+        <li><i class="fas fa-check"></i> Address history (5‑year)</li>
+        <li><i class="fas fa-check"></i> NBI clearance status check</li>
+        <li><i class="fas fa-clock"></i> 3‑5 day delivery</li>
+      </ul>
+      <p>Suitable for personal reference checks or tenant screening.</p>
+      <a href="mailto:contact.jaed@proton.me?subject=Basic%20Package%20Inquiry%20-%20Background%20Check&body=Hello,%20I%20am%20interested%20in%20the%20Basic%20package%20(₱9,500).%20Please%20find%20my%20clear%20requirements%20below:%0A%0A---%20Requirements%20---%0A%0A1.%20Full%20name%20of%20subject:%0A2.%20Purpose%20of%20check:%0A3.%20Any%20specific%20information%20needed%20(aliases,%20past%20addresses,%20etc.):%0A4.%20Deadline%20(if%20any):%0A%0AI%20look%20forward%20to%20your%20discreet%20assessment.%0A%0AThank%20you." class="btn-outline request-btn">Request this package</a>
+    </div>
+    <div class="package-card">
+      <h3>Standard</h3>
+      <div class="price">₱18,500 <small>/ per subject</small></div>
+      <ul class="feature-list">
+        <li><i class="fas fa-check"></i> Everything in Basic</li>
+        <li><i class="fas fa-check"></i> Criminal record search (nationwide courts)</li>
+        <li><i class="fas fa-check"></i> Employment verification (2 employers)</li>
+        <li><i class="fas fa-check"></i> Education verification (1 degree)</li>
+      </ul>
+      <p>Ideal for hiring, partnership vetting, or rental decisions.</p>
+      <a href="mailto:contact.jaed@proton.me?subject=Standard%20Package%20Inquiry%20-%20Background%20Check&body=Hello,%20I%20am%20interested%20in%20the%20Standard%20package%20(₱18,500).%20Please%20find%20my%20clear%20requirements%20below:%0A%0A---%20Requirements%20---%0A%0A1.%20Full%20name%20and%20any%20known%20aliases%20of%20subject:%0A2.%20Specific%20areas%20of%20focus%20(e.g.,%20criminal%20records,%20employment):%0A3.%20Relevant%20documents%20or%20details%20I%20should%20know:%0A4.%20Expected%20timeline:%0A%0AThank%20you%20for%20your%20discretion." class="btn-outline request-btn">Request this package</a>
+    </div>
+    <div class="package-card">
+      <h3>Premium</h3>
+      <div class="price">₱32,500 <small>/ per subject</small></div>
+      <ul class="feature-list">
+        <li><i class="fas fa-check"></i> Everything in Standard</li>
+        <li><i class="fas fa-check"></i> Digital footprint & data breach scan</li>
+        <li><i class="fas fa-check"></i> Advanced litigation & court case history</li>
+        <li><i class="fas fa-check"></i> Risk scoring + narrative report</li>
+        <li><i class="fas fa-clock"></i> 24‑48h expedited delivery</li>
+      </ul>
+      <p>Comprehensive due diligence for high‑stakes decisions.</p>
+      <a href="mailto:contact.jaed@proton.me?subject=Premium%20Package%20Inquiry%20-%20Background%20Check&body=Hello,%20I%20require%20the%20Premium%20package%20(₱32,500).%20Please%20find%20my%20detailed%20requirements%20below:%0A%0A---%20Clear%20requirements%20---%0A%0A1.%20Subject's%20full%20legal%20name,%20date%20of%20birth,%20and%20any%20aliases:%0A2.%20Priority%20areas%20(identity,%20criminal,%20digital%20footprint,%20etc.):%0A3.%20Reason%20for%20background%20check%20(employment,%20partnership,%20legal%20matter):%0A4.%20Urgency%20and%20preferred%20delivery%20method:%0A%0AI%20understand%20the%20report%20will%20be%20strictly%20confidential.%0A%0ARegards." class="btn-outline request-btn">Request this package</a>
+    </div>
+  </div>
+
+  <div class="trust-row">
+    <div class="trust-item"><i class="fas fa-shield-alt"></i> <span>Confidential handling</span></div>
+    <div class="trust-item"><i class="fas fa-lock"></i> <span>Encrypted communication</span></div>
+    <div class="trust-item"><i class="fas fa-search"></i> <span>Primary source verification</span></div>
+  </div>
+
+  <h2>Direct contact</h2>
+  <div class="contact-block">
+    <div class="contact-details">
+      <div class="contact-line">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:contact.jaed@proton.me">contact.jaed@proton.me</a>
+      </div>
+    </div>
+    <div class="small-note">Responses within 12 hours · All discussions under NDA · Please email clear requirements for faster processing</div>
+  </div>
+
+  <footer>
+    I operate as an independent background verification specialist based in the Philippines. All reports are for lawful purposes only. No data is shared with third parties.
+  </footer>
+</div>
+</body>
+</html>
