@@ -1498,6 +1498,7 @@
                     </div>
                 </li>
                 <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#process" class="nav-link">Process</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
 
                 <li style="display:none;" class="nav-n8n-mobile">
@@ -2578,6 +2579,98 @@
     </div>
 </section>
 
+<!-- ─── HOW IT WORKS ─── -->
+<section id="process">
+    <div class="grid-bg"></div>
+    <div class="gradient-orb" style="width:500px;height:500px;background:radial-gradient(circle,var(--primary),transparent);top:-150px;left:-200px;"></div>
+    <div class="gradient-orb" style="width:400px;height:400px;background:radial-gradient(circle,var(--accent),transparent);bottom:-100px;right:-150px;animation-delay:7s;"></div>
+    <div class="container">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">A Process Built for Clarity</h2>
+        <p class="section-subtitle">No surprises. No endless revisions. A straightforward process that keeps you informed and your project moving.</p>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="process-step-number">01</div>
+                <div class="process-step-content">
+                    <div class="process-step-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Discovery Call</h3>
+                    <p>We discuss your goals, constraints, and success metrics. I audit your current setup and identify quick wins plus long-term strategy — so we start with a clear picture of where you are and where you want to go.</p>
+                    <div class="process-step-tags">
+                        <span>Goals & Metrics</span>
+                        <span>Current Audit</span>
+                        <span>Quick Wins</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-connector">
+                <div class="process-connector-line"></div>
+                <div class="process-connector-arrow"><i class="fas fa-chevron-down"></i></div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-step-number">02</div>
+                <div class="process-step-content">
+                    <div class="process-step-icon"><i class="fas fa-map"></i></div>
+                    <h3>Strategy & Proposal</h3>
+                    <p>You get a clear roadmap with timelines, deliverables, and pricing. No vague retainers. Fixed scope with room for iteration — everything written down so expectations are aligned from day one.</p>
+                    <div class="process-step-tags">
+                        <span>Clear Roadmap</span>
+                        <span>Fixed Scope</span>
+                        <span>Transparent Pricing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-connector">
+                <div class="process-connector-line"></div>
+                <div class="process-connector-arrow"><i class="fas fa-chevron-down"></i></div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-step-number">03</div>
+                <div class="process-step-content">
+                    <div class="process-step-icon"><i class="fas fa-code"></i></div>
+                    <h3>Design & Development</h3>
+                    <p>I build in sprints with regular check-ins. You see progress in a staging environment and can provide feedback early — catching issues before they become problems, not after launch.</p>
+                    <div class="process-step-tags">
+                        <span>Sprint-Based</span>
+                        <span>Staging Preview</span>
+                        <span>Early Feedback</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-connector">
+                <div class="process-connector-line"></div>
+                <div class="process-connector-arrow"><i class="fas fa-chevron-down"></i></div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-step-number">04</div>
+                <div class="process-step-content">
+                    <div class="process-step-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Launch & Optimize</h3>
+                    <p>We deploy, monitor, and iterate. Post-launch support includes performance tracking and optimization recommendations — because a great launch is just the beginning, not the finish line.</p>
+                    <div class="process-step-tags">
+                        <span>Live Deployment</span>
+                        <span>Performance Tracking</span>
+                        <span>Post-Launch Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="process-cta">
+            <p>Ready to get started? The first step costs you nothing.</p>
+            <a href="https://calendly.com/jaeddelosa/30min?month=2025-07" class="btn btn-primary" target="_blank">
+                <i class="fas fa-calendar-alt"></i> Book Your Discovery Call
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- ─── CONTACT ─── -->
 <section id="contact">
     <div class="grid-bg"></div>
@@ -2980,6 +3073,155 @@
         .sticky-cta-text { font-size: 0.78rem; }
         .sticky-cta-btn { padding: 9px 14px; font-size: 0.8rem; }
         .sticky-cta-inner { gap: 12px; }
+    }
+
+    /* ─── HOW IT WORKS / PROCESS ─── */
+    .process-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin: 72px 0 60px;
+    }
+
+    .process-step {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .process-step-number {
+        font-family: 'Syne', sans-serif;
+        font-size: 5rem;
+        font-weight: 800;
+        line-height: 1;
+        background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(99,102,241,0.08));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: right;
+        padding-top: 8px;
+        letter-spacing: -2px;
+    }
+
+    .process-step-content {
+        background: linear-gradient(135deg, rgba(30,41,59,0.6), rgba(15,23,42,0.4));
+        border: 1px solid rgba(99,102,241,0.15);
+        border-radius: var(--border-radius);
+        padding: 40px 48px;
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+    }
+
+    .process-step-content::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .process-step-content:hover {
+        border-color: rgba(99,102,241,0.35);
+        transform: translateY(-2px);
+        box-shadow: 0 16px 48px rgba(99,102,241,0.12);
+    }
+
+    .process-step-content:hover::before { opacity: 1; }
+
+    .process-step-icon {
+        width: 52px; height: 52px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(99,102,241,0.06));
+        border: 1px solid rgba(99,102,241,0.25);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.3rem;
+        color: var(--primary-light);
+        margin-bottom: 20px;
+    }
+
+    .process-step-content h3 {
+        font-size: 1.5rem;
+        color: var(--lighter);
+        margin-bottom: 14px;
+    }
+
+    .process-step-content p {
+        color: var(--gray-medium);
+        line-height: 1.8;
+        margin-bottom: 24px;
+        font-size: 1.05rem;
+    }
+
+    .process-step-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .process-step-tags span {
+        padding: 5px 14px;
+        background: rgba(99,102,241,0.08);
+        border: 1px solid rgba(99,102,241,0.18);
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--primary-light);
+    }
+
+    .process-connector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 60px;
+        margin: 4px 0;
+    }
+
+    .process-connector-line {
+        width: 2px;
+        height: 40px;
+        background: linear-gradient(to bottom, rgba(99,102,241,0.3), rgba(99,102,241,0.08));
+    }
+
+    .process-connector-arrow {
+        color: rgba(99,102,241,0.35);
+        font-size: 0.8rem;
+        margin-top: 2px;
+    }
+
+    .process-cta {
+        text-align: center;
+        padding: 56px;
+        background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(20,184,166,0.04));
+        border: 1px solid rgba(99,102,241,0.18);
+        border-radius: var(--border-radius);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .process-cta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, rgba(99,102,241,0.06) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .process-cta p {
+        font-size: 1.2rem;
+        color: var(--gray-medium);
+        margin-bottom: 28px;
+    }
+
+    @media (max-width: 768px) {
+        .process-step { grid-template-columns: 1fr; gap: 16px; }
+        .process-step-number { font-size: 3rem; text-align: left; padding-top: 0; }
+        .process-step-content { padding: 28px 24px; }
+        .process-connector { padding-left: 20px; }
+        .process-cta { padding: 36px 24px; }
     }
 
     /* ─── MUSIC TOGGLE BUTTON ─── */
