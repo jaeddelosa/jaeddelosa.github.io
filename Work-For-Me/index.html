@@ -2,95 +2,306 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Work for Me - Jaed Delosa Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Work for Me</title>
   <meta name="description" content="Join Jaed Delosa's team as a subcontractor. Learn requirements for AI workflow automation and agentic AI integration.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ========== RED / CRIMSON THEME (consistent with all projects) ========== */
+    :root {
+      --bg-deep: #0A0809;
+      --bg-elevated: #131011;
+      --bg-card: #1C1618;
+      --border-subtle: rgba(230, 70, 60, 0.2);
+      --border-glow: rgba(230, 70, 60, 0.5);
+      --primary-accent: #E64E3A;
+      --secondary-accent: #C73E2D;
+      --accent-glow: #F25E4A;
+      --text-light: #F5EFED;
+      --text-muted: #BEAEAA;
+      --gradient-primary: linear-gradient(105deg, #E64E3A 0%, #BC2F1E 100%);
+      --shadow-accent: 0 8px 20px rgba(230, 78, 58, 0.25);
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg-deep);
+      color: var(--text-light);
       line-height: 1.6;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #333;
-      background-color: #fafafa;
+      scroll-behavior: smooth;
     }
-    h1, h2 {
-      color: #222;
+
+    /* warm red glow */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(230, 78, 58, 0.08) 0%, rgba(0, 0, 0, 0) 75%);
+      pointer-events: none;
+      z-index: -2;
     }
-    h1 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
-    section {
-      margin-bottom: 30px;
+
+    /* header / navbar */
+    .navbar {
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
     }
-    footer {
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid #ccc;
-      font-size: 0.9em;
-      text-align: center;
-      color: #555;
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #FFFFFF 0%, #FAB0A4 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
-    a {
-      color: #0066cc;
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
       text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: color 0.2s ease;
     }
+
+    .nav-links a:hover {
+      color: var(--primary-accent);
+    }
+
+    /* main content */
+    main {
+      padding: 3rem 0 4rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFC9C0 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1.5rem;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .intro-text {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+    }
+
+    /* section styling */
+    section {
+      margin-bottom: 2.5rem;
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 1.8rem;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s;
+    }
+
+    section:hover {
+      border-color: var(--border-glow);
+      background: rgba(30, 22, 24, 0.9);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #FEE1DB;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-muted);
+    }
+
+    li::before {
+      content: "✓";
+      color: var(--primary-accent);
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #FAB0A4;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
     a:hover {
+      color: var(--primary-accent);
       text-decoration: underline;
+    }
+
+    .contact-email {
+      background: rgba(230, 78, 58, 0.1);
+      border-left: 3px solid var(--primary-accent);
+      padding: 1rem 1.2rem;
+      border-radius: 16px;
+      font-size: 1rem;
+    }
+
+    /* footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0 2.5rem;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 2rem;
+      color: #8C7A76;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #E67A6A;
+    }
+
+    footer a:hover {
+      color: var(--primary-accent);
+    }
+
+    .footer-links {
+      margin-top: 0.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Work for Me</h1>
-  <p>I lead projects that combine creativity, technical discipline, and AI‑driven innovation. To deliver at scale, I hire subcontractors who work under my direction. If you want to join my team, here’s what I expect and how we collaborate.</p>
+<div class="container">
+  <nav class="navbar">
+    <div class="logo">Jaed Delosa</div>
+    <div class="nav-links">
+      <a href="https://jaeddelosa.github.io/">Home</a>
+      <a href="#expect">Expectations</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-  <section>
-    <h2>What I Expect</h2>
-    <ul>
-      <li>Confidentiality and professionalism at all times.</li>
-      <li>Reliable communication and timely delivery.</li>
-      <li>Alignment with my frameworks and project goals.</li>
-      <li>Transparency in reporting progress and outcomes.</li>
-    </ul>
-  </section>
+  <main>
+    <h1>Work for Me</h1>
+    <div class="intro-text">
+      I lead projects that combine creativity, technical discipline, and AI‑driven innovation. To deliver at scale, I hire subcontractors who work under my direction. If you want to join my team, here’s what I expect and how we collaborate.
+    </div>
 
-  <section>
-    <h2>AI Workflow Automation</h2>
-    <p>If you’re contributing to workflow automation projects, you’ll need to:</p>
-    <ul>
-      <li>Document processes, triggers, and fallback routines clearly.</li>
-      <li>Build modular, scalable designs.</li>
-      <li>Follow strict privacy and security standards.</li>
-      <li>Test thoroughly to ensure accuracy and reliability.</li>
-    </ul>
-  </section>
+    <section id="expect">
+      <h2>What I Expect</h2>
+      <ul>
+        <li>Confidentiality and professionalism at all times.</li>
+        <li>Reliable communication and timely delivery.</li>
+        <li>Alignment with my frameworks and project goals.</li>
+        <li>Transparency in reporting progress and outcomes.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Agentic AI Integration</h2>
-    <p>For projects involving autonomous AI agents, subcontractors must:</p>
-    <ul>
-      <li>Define the scope of autonomy with human oversight.</li>
-      <li>Maintain transparent logs of agent actions and results.</li>
-      <li>Implement fallback mechanisms to prevent unintended behavior.</li>
-      <li>Ensure ethical alignment with client goals and industry best practices.</li>
-    </ul>
-  </section>
+    <section>
+      <h2>AI Workflow Automation</h2>
+      <p>If you’re contributing to workflow automation projects, you’ll need to:</p>
+      <ul>
+        <li>Document processes, triggers, and fallback routines clearly.</li>
+        <li>Build modular, scalable designs.</li>
+        <li>Follow strict privacy and security standards.</li>
+        <li>Test thoroughly to ensure accuracy and reliability.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Why Join My Team</h2>
-    <p>Working under my direction means contributing to projects that matter — blending technical rigor with creative impact. You’ll have the freedom to apply your expertise, but always within a structured, accountable framework.</p>
-  </section>
+    <section>
+      <h2>Agentic AI Integration</h2>
+      <p>For projects involving autonomous AI agents, subcontractors must:</p>
+      <ul>
+        <li>Define the scope of autonomy with human oversight.</li>
+        <li>Maintain transparent logs of agent actions and results.</li>
+        <li>Implement fallback mechanisms to prevent unintended behavior.</li>
+        <li>Ensure ethical alignment with client goals and industry best practices.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Get in Touch</h2>
-    <p>If you’re interested in working for me as a subcontractor, or if you have questions about requirements, reach out directly at: <a href="mailto:jgdelosa@outlook.com">jgdelosa@outlook.com</a>.</p>
-  </section>
+    <section>
+      <h2>Why Join My Team</h2>
+      <p>Working under my direction means contributing to projects that matter — blending technical rigor with creative impact. You’ll have the freedom to apply your expertise, but always within a structured, accountable framework.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p>If you’re interested in working for me as a subcontractor, or if you have questions about requirements, reach out directly at:</p>
+      <div class="contact-email">
+        📧 <a href="mailto:jgdelosa@outlook.com">jgdelosa@outlook.com</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2026 Jaed Delosa. All rights reserved.</p>
-    <p><a href="https://jaeddelosa.github.io/">Home</a> | <a href="https://jaeddelosa.github.io/Privacy-Policy/">Privacy Policy</a> | <a href="https://jaeddelosa.github.io/Terms-of-Use/">Terms of Use</a> </p>
+    <div class="footer-links">
+      <a href="https://jaeddelosa.github.io/">Home</a> |
+      <a href="https://jaeddelosa.github.io/Privacy-Policy/">Privacy Policy</a> |
+      <a href="https://jaeddelosa.github.io/Terms-of-Use/">Terms of Use</a>
+    </div>
   </footer>
+</div>
 </body>
 </html>
