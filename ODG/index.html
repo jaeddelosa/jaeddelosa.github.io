@@ -1,1 +1,498 @@
-<h3>This page is currently in development. Please come back later.</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Open Data Gateway — 320+ Open Databases, One Place</title>
+  <meta name="description" content="Open Data Gateway is a curated directory of 320+ high-quality open databases — science, government, health, economics, climate, and more. All free, all in one place.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ========== RED / CRIMSON THEME (same as FuelRoute PH) ========== */
+    :root {
+      --bg-deep: #0A0809;
+      --bg-elevated: #131011;
+      --bg-card: #1C1618;
+      --border-subtle: rgba(230, 70, 60, 0.2);
+      --border-glow: rgba(230, 70, 60, 0.5);
+      --primary-accent: #E64E3A;   /* vivid red-orange */
+      --secondary-accent: #C73E2D;
+      --accent-glow: #F25E4A;
+      --text-light: #F5EFED;
+      --text-muted: #BEAEAA;
+      --gradient-primary: linear-gradient(105deg, #E64E3A 0%, #BC2F1E 100%);
+      --gradient-hero: linear-gradient(135deg, #FFFFFF 0%, #FFC9C0 80%);
+      --gradient-cta: linear-gradient(145deg, #291D1A 0%, #160F0D 100%);
+      --shadow-accent: 0 8px 20px rgba(230, 78, 58, 0.25);
+      --shadow-hover: 0 15px 25px -10px rgba(230, 78, 58, 0.5);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg-deep);
+      color: var(--text-light);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* warm red glow */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 10% 20%, rgba(230, 78, 58, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* navigation */
+    .navbar {
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #FFFFFF 0%, #FAB0A4 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-accent);
+    }
+
+    /* buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-primary);
+      color: white;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: var(--shadow-accent);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(105deg, #F26350 0%, #C53421 100%);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(230, 78, 58, 0.6);
+      color: #FADCD6;
+      font-weight: 500;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary-accent);
+      color: var(--primary-accent);
+      background: rgba(230, 78, 58, 0.08);
+    }
+
+    /* hero */
+    .hero {
+      padding: 5rem 0 3rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(230, 78, 58, 0.15);
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--primary-accent);
+      width: fit-content;
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: var(--gradient-hero);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      max-width: 850px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 650px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* section common */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #FFFFFF, #FFB5A8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      max-width: 720px;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    /* two-col layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .card-dark {
+      background: rgba(28, 22, 24, 0.85);
+      backdrop-filter: blur(3px);
+      border-radius: 28px;
+      padding: 2rem;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.25s;
+    }
+
+    .card-dark:hover {
+      border-color: var(--border-glow);
+      background: rgba(40, 30, 32, 0.9);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    /* features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 1.8rem;
+      border: 1px solid var(--border-subtle);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--primary-accent);
+      transform: translateY(-4px);
+    }
+
+    .feature-card h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.4rem;
+      color: #FEE1DB;
+    }
+
+    .feature-icon {
+      font-size: 2.3rem;
+    }
+
+    /* CTA section */
+    .cta-section {
+      text-align: center;
+      background: var(--gradient-cta);
+      border-radius: 48px;
+      padding: 3.5rem 2rem;
+      margin: 3rem 0 2rem;
+      border: 1px solid rgba(230, 78, 58, 0.25);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-section h2 {
+      color: #FFF2EF;
+    }
+
+    .cta-section p {
+      color: #DBC7C2;
+    }
+
+    .cta-section a.btn-primary {
+      background: var(--gradient-primary);
+      box-shadow: 0 8px 20px rgba(230, 78, 58, 0.3);
+    }
+
+    /* footer */
+    .footer {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      color: #8C7A76;
+      font-size: 0.85rem;
+    }
+
+    .footer a {
+      color: #E67A6A;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--primary-accent);
+    }
+
+    /* spotlight / project block */
+    .spotlight-card {
+      background: rgba(199, 62, 45, 0.08);
+      border-radius: 32px;
+      padding: 2rem;
+      border: 1px solid rgba(230, 78, 58, 0.25);
+      margin: 1rem 0 2rem;
+      transition: border 0.2s;
+    }
+
+    .spotlight-card:hover {
+      border-color: rgba(230, 78, 58, 0.6);
+    }
+
+    /* responsive */
+    @media (max-width: 850px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- navigation -->
+  <nav class="navbar">
+    <div class="logo">Open Data Gateway</div>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#features">Features</a>
+      <a href="#impact">Impact</a>
+    </div>
+  </nav>
+
+  <!-- hero section -->
+  <div class="hero">
+    <div class="hero-badge">📡 Open Data Directory</div>
+    <h1>320+ open databases.<br>One gateway.</h1>
+    <p>Science, government, health, economics, climate, and beyond — curated and accessible. A single portal for the world's most credible open data sources.</p>
+    <div class="hero-actions">
+      <a href="https://odg.jaeddelosa.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn-primary">Explore the gateway →</a>
+      <a href="#contact-cta" class="btn-outline">Get in touch</a>
+    </div>
+  </div>
+
+  <!-- problem section -->
+  <section id="problem">
+    <div class="two-col">
+      <div>
+        <span class="hero-badge" style="margin-bottom: 1rem; display: inline-block;">The challenge</span>
+        <h2 class="section-title" style="margin-bottom: 1rem;">Open data is scattered — and often hard to find.</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">Researchers, analysts, and data enthusiasts waste hours hunting for reliable datasets across dozens of portals, each with its own interface and access rules. Valuable government, scientific, and economic data remains siloed — or worse, undiscovered.</p>
+        <p style="color: var(--text-muted);">Open Data Gateway solves this by providing a single, curated directory of the world's most trusted open databases — from NASA exoplanet archives to UN climate indicators, WHO health data, World Bank economic metrics, and hundreds more. All verified, all openly accessible, all in one place.</p>
+      </div>
+      <div class="card-dark">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">🗂️</div>
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem; color: #FDDAD2;">What Open Data Gateway solves</h3>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li style="margin-bottom: 0.8rem;">✓ ❌ Fragmented discovery → ✅ Curated, one-stop directory</li>
+          <li style="margin-bottom: 0.8rem;">✓ ❌ Unreliable sources → ✅ Verified, credible databases</li>
+          <li style="margin-bottom: 0.8rem;">✓ ❌ Paywalled knowledge → ✅ 100% free access</li>
+          <li style="margin-bottom: 0.8rem;">✓ ❌ No categorization → ✅ 14 intuitive categories + search</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- features section -->
+  <section id="features">
+    <div style="text-align: center;">
+      <span class="hero-badge" style="margin-bottom: 1rem;">What's inside</span>
+      <h2 class="section-title">Every open database, beautifully organized</h2>
+      <p class="section-sub">From exoplanets to economic indicators — find the data you need, fast.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔭</div>
+        <h3>Science & Research</h3>
+        <p style="color: var(--text-muted);">NASA Exoplanet Archive, CERN Open Data, Allen Brain Atlas, arXiv papers, and more.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏛️</div>
+        <h3>Government & Policy</h3>
+        <p style="color: var(--text-muted);">Data.gov (US), Canada Open Government, EU Open Data Portal, Argentina Datos Abiertos.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🩺</div>
+        <h3>Health & Epidemiology</h3>
+        <p style="color: var(--text-muted);">WHO Global Health Observatory, CDC BRFSS, Global Burden of Disease, GHDx.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3>Economics & Finance</h3>
+        <p style="color: var(--text-muted);">World Bank, IMF Global Debt Database, BIS Statistics, BLS Data.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Climate & Environment</h3>
+        <p style="color: var(--text-muted);">Global Carbon Project, Global Forest Watch, AQUEDUCT Water Risk, Carbon Monitor.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚦</div>
+        <h3>Transport & Mobility</h3>
+        <p style="color: var(--text-muted);">US BTS aviation/rail data, GTFS transit feeds, bike share trip histories.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- impact / who benefits -->
+  <section id="impact">
+    <div class="two-col">
+      <div>
+        <span class="hero-badge" style="margin-bottom: 0.8rem;">Who benefits</span>
+        <h2 class="section-title" style="margin-bottom: 1rem;">For researchers, data scientists, and curious minds.</h2>
+        <p style="margin-bottom: 1rem; color: var(--text-muted);">Whether you're an academic hunting for clean datasets, a journalist fact-checking global trends, a startup building data-driven products, or simply a lifelong learner — Open Data Gateway cuts through the noise.</p>
+        <p style="color: var(--text-muted);">No more scattered bookmarks. No more paywalls. Just direct access to the world's most valuable open knowledge bases, organized and ready for discovery.</p>
+      </div>
+      <div class="card-dark">
+        <div style="font-weight: 600; font-size: 1.3rem; margin-bottom: 0.75rem; color: #F3C2B6;">⚙️ Built for discovery</div>
+        <p style="margin-bottom: 1rem; color: var(--text-muted);">Each database is manually vetted and categorized, with direct links to the source. The directory is updated continuously as new open data portals emerge — ensuring you always have the latest access to credible information.</p>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+          <span style="background: #2C1E1B; padding: 0.2rem 0.8rem; border-radius: 30px; color: #F3C2B6;">📚 337+ databases</span>
+          <span style="background: #2C1E1B; padding: 0.2rem 0.8rem; border-radius: 30px; color: #F3C2B6;">🏷️ 14 categories</span>
+          <span style="background: #2C1E1B; padding: 0.2rem 0.8rem; border-radius: 30px; color: #F3C2B6;">🔓 100% free</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- project spotlight -->
+  <div class="spotlight-card">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+      <div>
+        <div class="hero-badge" style="margin-bottom: 0.5rem;">Featured in Jaed Delosa portfolio</div>
+        <h3 style="font-size: 1.5rem; font-weight: 600; color: #F3D4CB;">Open Data Gateway — a curated open data directory</h3>
+        <p style="color: var(--text-muted); margin-top: 0.4rem;">Part of a growing ecosystem of open knowledge tools by Jaed Delosa.</p>
+      </div>
+      <a href="https://odg.jaeddelosa.workers.dev/" target="_blank" rel="noopener" class="btn-outline" style="white-space: nowrap;">Visit gateway →</a>
+    </div>
+  </div>
+
+  <!-- call to action -->
+  <div id="contact-cta">
+    <div class="cta-section">
+      <h2 style="font-size: 2rem; margin-bottom: 1rem;">Ready to explore the world's open data?</h2>
+      <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem auto;">Open Data Gateway is just one example of smart digital solutions. Whether you need custom data tools, AI automation, or a complete digital strategy — let's build something great.</p>
+      <a href="https://jaeddelosa.tech/#contact" target="_blank" rel="noopener noreferrer" class="btn-primary">Contact the creator →</a>
+      <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #C2AAA3;">📩 Get a free consultation or discuss a tailored solution</p>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer">
+    <p>Open Data Gateway — a curated directory of 320+ open databases. Part of Jaed Delosa's virtual solutions portfolio.</p>
+    <p style="margin-top: 0.8rem;">© 2025 Open Data Gateway | <a href="https://jaeddelosa.tech/" target="_blank">jaeddelosa.tech</a></p>
+  </div>
+</div>
+
+<!-- smooth scroll for anchor links -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === "#" || targetId === "") return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
