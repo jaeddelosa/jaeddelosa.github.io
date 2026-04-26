@@ -128,6 +128,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 24px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+        .section-label::before {
+            content: '> ';
+            color: #22d3ee;
+            opacity: 0.7;
         }
 
         .section-title {
@@ -440,6 +446,37 @@
             50%{opacity:0.5;transform:scale(1.2);}
         }
 
+        /* ─── AI AUTOMATION AMBIENT OVERLAY ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(34,211,238,0.018) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34,211,238,0.018) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes scanline {
+            0%   { transform: translateY(-100vh); opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(34,211,238,0.12), transparent);
+            animation: scanline 12s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 28px; animation: fadeInUp 0.6s ease 0.1s backwards; }
 
         .gradient-text {
@@ -526,6 +563,28 @@
         .tech-badge:hover { background: rgba(225,29,72,0.15); border-color: var(--primary); transform: translateY(-2px); }
         .tech-badge i { font-size: 1.2rem; color: var(--primary-light); }
 
+        .tech-badge.tech-badge--ai {
+            background: linear-gradient(135deg, rgba(34,211,238,0.1), rgba(225,29,72,0.06));
+            border-color: rgba(34,211,238,0.3);
+            position: relative;
+        }
+        .tech-badge.tech-badge--ai i { color: #22d3ee; }
+        .tech-badge.tech-badge--ai span { color: #22d3ee; font-weight: 700; }
+        .tech-badge.tech-badge--ai::before {
+            content: '✦ NEW';
+            position: absolute;
+            top: -9px; right: 6px;
+            font-size: 0.52rem; font-weight: 800; letter-spacing: 1px;
+            background: linear-gradient(135deg, #22d3ee, var(--primary));
+            color: white; padding: 2px 7px; border-radius: 20px;
+        }
+        .tech-badge.tech-badge--ai:hover {
+            background: linear-gradient(135deg, rgba(34,211,238,0.2), rgba(225,29,72,0.12));
+            border-color: #22d3ee;
+            box-shadow: 0 4px 20px rgba(34,211,238,0.2);
+            transform: translateY(-3px);
+        }
+
         .process-showcase { margin-top: 100px; animation: fadeInUp 0.8s ease 0.8s backwards; }
 
         .process-images { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; }
@@ -536,7 +595,7 @@
 
         .process-img-grid { display: grid; gap: 24px; }
 
-        .process-img-small { position: relative; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid rgba(225,29,72,0.2); height: 188px; }
+        .process-img-small { position: relative; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid rgba(225,29,72,0.2); height: 188px; background: #141420; }
         .process-img-small img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
         .process-img-small:hover img { transform: scale(1.1); }
 
@@ -1529,7 +1588,7 @@
                 <h1>Build Systems That <span class="gradient-text">Work Without You</span></h1>
                 <p class="subtitle">Workflow automation, AI integrations, and web systems engineered for businesses that are done doing everything manually</p>
                 <p class="description">
-                    I design and deploy the infrastructure modern businesses actually need — n8n automation pipelines, automation you own and control, not rented from a SaaS, API-connected workflows, and SEO/AEO strategies that surface your brand in both search engines and AI answers. Less manual work. More compounding leverage.
+                    I design and deploy the infrastructure modern businesses actually need — n8n automation pipelines, Claude Code + MCP server integrations, API-connected workflows, and SEO/AEO strategies that surface your brand in both search engines and AI answers. Automation you own and control, not rented from a SaaS. Less manual work. More compounding leverage.
                 </p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
@@ -1545,8 +1604,8 @@
                         <div><strong>n8n Automation</strong><p>End-to-end pipelines</p></div>
                     </div>
                     <div class="floating-card floating-card-2">
-                        <i class="fas fa-chart-line"></i>
-                        <div><strong>SEO + AEO</strong><p>Rank in search & AI</p></div>
+                        <i class="fas fa-terminal"></i>
+                        <div><strong>Claude Code + MCP</strong><p>Agentic AI workflows</p></div>
                     </div>
                     <div class="floating-card floating-card-3">
                         <i class="fas fa-robot"></i>
@@ -1566,7 +1625,7 @@
         </div>
 
         <div class="trust-section">
-            <p class="trust-label">Technologies & Tools I Build With</p>
+            <p class="trust-label">AI Automation Stack — Tools I Deploy & Master</p>
             <div class="tech-grid">
                 <div class="tech-badge"><i class="fas fa-cog"></i><span>n8n</span></div>
                 <div class="tech-badge"><i class="fab fa-docker"></i><span>Docker</span></div>
@@ -1586,25 +1645,77 @@
                 <div class="tech-badge"><i class="fas fa-store"></i><span>Shopify</span></div>
                 <div class="tech-badge"><i class="fab fa-figma"></i><span>Figma</span></div>
                 <div class="tech-badge"><i class="fas fa-table"></i><span>Notion</span></div>
+                <div class="tech-badge tech-badge--ai"><i class="fas fa-terminal"></i><span>Claude Code</span></div>
+                <div class="tech-badge tech-badge--ai"><i class="fas fa-plug"></i><span>MCP Servers</span></div>
             </div>
         </div>
 
         <div class="process-showcase">
             <div class="process-images">
                 <div class="process-img-large">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional workspace setup">
-                    <div class="process-overlay"><h4>Systems Thinking</h4><p>Every engagement starts with understanding your workflows, not just your goals</p></div>
+                    <img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/multi_agents_systems_1ab544d423.png" alt="n8n Workflow Automation Pipeline">
+                    <div class="process-overlay"><h4>AI-Powered Automation</h4><p>n8n pipelines wiring your tools, APIs, and AI models into seamless workflows</p></div>
                 </div>
                 <div class="process-img-grid">
                     <div class="process-img-small">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Analytics dashboard">
-                        <div class="process-overlay"><h5>Data-Driven</h5></div>
+                        <img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/workflow_itops_5d5a4bf299.svg" alt="AI Integration Dashboard">
+                        <div class="process-overlay"><h5>AI-Driven</h5></div>
                     </div>
                     <div class="process-img-small">
-                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Team collaboration">
-                        <div class="process-overlay"><h5>Collaborative</h5></div>
+                        <img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-stage/assets/itops_usecase_93df72dbc2.png" alt="Automation Analytics">
+                        <div class="process-overlay"><h5>Data-Driven</h5></div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- n8n Workflow Showcase -->
+        <div class="n8n-showcase">
+            <div class="n8n-showcase-header">
+                <span class="section-label" style="margin-bottom:16px;">Live Workflows</span>
+                <h3 style="font-size:1.8rem;color:var(--lighter);margin-bottom:12px;">n8n Automation in Action</h3>
+                <p style="color:var(--gray-medium);font-size:1rem;max-width:600px;">Real workflow examples — from lead capture to AI agent orchestration — built and deployed on self-hosted infrastructure.</p>
+            </div>
+            <div class="n8n-workflow-grid">
+                <div class="n8n-workflow-card">
+                    <div class="n8n-workflow-img">
+                        <img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/dropcontact_lemlist_workflow_654a24157f.png" alt="n8n Lead Qualification Workflow">
+                        <div class="n8n-workflow-badge"><i class="fas fa-cog"></i> n8n Pipeline</div>
+                    </div>
+                    <div class="n8n-workflow-info">
+                        <h4>AI Lead Qualification Pipeline</h4>
+                        <p>Captures inbound leads, scores them via AI, and routes high-intent contacts to CRM — zero manual touch.</p>
+                        <div class="n8n-workflow-tags"><span>n8n</span><span>OpenAI</span><span>HubSpot</span><span>Webhook</span></div>
+                    </div>
+                </div>
+                <div class="n8n-workflow-card">
+                    <div class="n8n-workflow-img">
+                        <img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/multi_agents_systems_1ab544d423.png" alt="n8n MCP Server Orchestration">
+                        <div class="n8n-workflow-badge"><i class="fas fa-plug"></i> MCP Integration</div>
+                    </div>
+                    <div class="n8n-workflow-info">
+                        <h4>MCP Server + Claude Code Agent</h4>
+                        <p>Claude Code connects to MCP servers to autonomously pull data, write code, and push updates across integrated tools.</p>
+                        <div class="n8n-workflow-tags"><span>Claude Code</span><span>MCP</span><span>n8n</span><span>API</span></div>
+                    </div>
+                </div>
+                <div class="n8n-workflow-card">
+                    <div class="n8n-workflow-img">
+                        <img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-stage/assets/hubspot_lead_verification_2x_ded4ceba12_1_1b795c1eda.png" alt="n8n Reporting Automation">
+                        <div class="n8n-workflow-badge"><i class="fas fa-chart-line"></i> Reporting</div>
+                    </div>
+                    <div class="n8n-workflow-info">
+                        <h4>Automated Reporting & Alerting</h4>
+                        <p>Scheduled pipelines that aggregate metrics, generate AI summaries, and deliver reports to Slack or email on autopilot.</p>
+                        <div class="n8n-workflow-tags"><span>n8n</span><span>Slack</span><span>Google Sheets</span><span>AI</span></div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:40px;">
+                <a href="https://payhip.com/autom8ic" target="_blank" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48"><rect width="48" height="48" rx="8" fill="#22d3ee"/><text x="24" y="33" text-anchor="middle" font-family="monospace" font-weight="900" font-size="20" fill="white">n8n</text></svg>
+                    Browse n8n Workflow Templates
+                </a>
             </div>
         </div>
     </div>
@@ -1625,7 +1736,7 @@
             </div>
             <div class="sp-divider"></div>
             <div class="sp-stat">
-                <span class="sp-num">217%</span>
+                <span class="sp-num">89%</span>
                 <span class="sp-lbl">Avg. SEO/AEO Traffic Growth</span>
             </div>
             <div class="sp-divider"></div>
@@ -2017,12 +2128,12 @@
                 </div>
             </div>
             <div class="solution-card">
-                <div class="solution-img"><img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Digital Automation"></div>
+                <div class="solution-img"><img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/workflow_itops_5d5a4bf299.svg" alt="n8n Workflow Automation"></div>
                 <div class="solution-icon"><i class="fas fa-robot"></i></div>
                 <div class="sol-body">
                     <h3>Workflow Automation</h3>
                     <p>Custom automation pipelines that eliminate manual work, connect your tools, and keep your operations running — even when you're not watching.</p>
-                    <ul class="solution-features"><li>n8n Workflow Design & Deployment</li><li>Dockerized Automation Stacks</li><li>Multi-system API Orchestration</li><li>AI-Powered Data Enrichment Pipelines</li></ul>
+                    <ul class="solution-features"><li>n8n Workflow Design & Deployment</li><li>Dockerized Automation Stacks</li><li>Multi-system API Orchestration</li><li>AI-Powered Data Enrichment Pipelines</li><li style="color:#22d3ee;">Claude Code Agentic Automation</li><li style="color:#22d3ee;">MCP Server Integrations</li></ul>
                     <div class="impact-badge"><h4>Business Impact</h4><p>Reclaim 10–20+ hours per week by replacing repetitive manual tasks with reliable, observable automation.</p></div>
                 </div>
             </div>
@@ -2105,6 +2216,8 @@
                         <div class="service-item"><h4>AI-Powered Data Enrichment</h4><p>Automated pipelines that clean, enrich, and route records before they hit your CRM</p></div>
                         <div class="service-item"><h4>Chatbot & AI Agent Setup</h4><p>Conversational AI deployments for lead qualification, support, and internal knowledge retrieval</p></div>
                         <div class="service-item"><h4>Reporting & Monitoring Automation</h4><p>Scheduled dashboards and health alerts so you always know what your systems are doing</p></div>
+                        <div class="service-item" style="border-left:2px solid #22d3ee;padding-left:16px;background:rgba(34,211,238,0.04);border-radius:0 var(--border-radius-sm) var(--border-radius-sm) 0;"><h4 style="color:#22d3ee;">Claude Code Agentic Development</h4><p>AI-assisted codebase-level automation — Claude Code reads, writes, and ships code autonomously with full project context</p></div>
+                        <div class="service-item" style="border-left:2px solid #22d3ee;padding-left:16px;background:rgba(34,211,238,0.04);border-radius:0 var(--border-radius-sm) var(--border-radius-sm) 0;"><h4 style="color:#22d3ee;">MCP Server Integration</h4><p>Connect Claude to your live tools and databases via Model Context Protocol — turning AI into an active operator, not a passive chatbot</p></div>
                     </div>
                 </div>
             </div>
@@ -2186,7 +2299,35 @@
                 <div class="ai-stat"><span class="ai-stat-num">100%</span><span class="ai-stat-lbl">Data stays within your environment</span></div>
                 <div class="ai-stat"><span class="ai-stat-num">~2 wks</span><span class="ai-stat-lbl">Typical setup timeline for a scoped deployment</span></div>
             </div>
-        </div>
+            <!-- n8n workflow visual for internal AI -->
+            <div style="margin-top:48px;border-radius:var(--border-radius);overflow:hidden;border:1px solid rgba(34,211,238,0.2);position:relative;">
+                <img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/multi_agents_systems_1ab544d423.png" alt="n8n AI Agent Workflow Diagram" style="width:100%;height:260px;object-fit:cover;filter:saturate(0.6) brightness(0.6);">
+                <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(34,211,238,0.15),rgba(225,29,72,0.1));display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;padding:24px;">
+                    <div style="background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border:1px solid rgba(34,211,238,0.3);border-radius:12px;padding:20px 28px;text-align:center;">
+                        <i class="fas fa-cog" style="font-size:1.8rem;color:#22d3ee;margin-bottom:8px;display:block;"></i>
+                        <strong style="color:white;font-size:0.95rem;">n8n Pipeline</strong>
+                        <p style="color:rgba(255,255,255,0.6);font-size:0.8rem;margin:4px 0 0;">Trigger → AI → CRM</p>
+                    </div>
+                    <i class="fas fa-arrow-right" style="color:rgba(255,255,255,0.3);font-size:1.2rem;"></i>
+                    <div style="background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border:1px solid rgba(34,211,238,0.3);border-radius:12px;padding:20px 28px;text-align:center;">
+                        <i class="fas fa-terminal" style="font-size:1.8rem;color:#22d3ee;margin-bottom:8px;display:block;"></i>
+                        <strong style="color:white;font-size:0.95rem;">Claude Code</strong>
+                        <p style="color:rgba(255,255,255,0.6);font-size:0.8rem;margin:4px 0 0;">Writes & executes code</p>
+                    </div>
+                    <i class="fas fa-arrow-right" style="color:rgba(255,255,255,0.3);font-size:1.2rem;"></i>
+                    <div style="background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border:1px solid rgba(34,211,238,0.3);border-radius:12px;padding:20px 28px;text-align:center;">
+                        <i class="fas fa-plug" style="font-size:1.8rem;color:#22d3ee;margin-bottom:8px;display:block;"></i>
+                        <strong style="color:white;font-size:0.95rem;">MCP Servers</strong>
+                        <p style="color:rgba(255,255,255,0.6);font-size:0.8rem;margin:4px 0 0;">Live tool connections</p>
+                    </div>
+                    <i class="fas fa-arrow-right" style="color:rgba(255,255,255,0.3);font-size:1.2rem;"></i>
+                    <div style="background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border:1px solid rgba(34,211,238,0.3);border-radius:12px;padding:20px 28px;text-align:center;">
+                        <i class="fas fa-check-circle" style="font-size:1.8rem;color:var(--success);margin-bottom:8px;display:block;"></i>
+                        <strong style="color:white;font-size:0.95rem;">Automated Output</strong>
+                        <p style="color:rgba(255,255,255,0.6);font-size:0.8rem;margin:4px 0 0;">Zero manual work</p>
+                    </div>
+                </div>
+            </div>
 
         <!-- Panel: Productivity -->
         <div class="ai-panel" id="ai-productivity">
@@ -2473,6 +2614,41 @@
             </div>
         </div>
 
+        <!-- Claude Code + MCP Servers Strip -->
+        <div class="claude-mcp-strip">
+            <div>
+                <div class="ai-label" style="margin-bottom:20px;display:inline-flex;">
+                    <span class="ai-label-dot" style="background:#22d3ee;box-shadow:0 0 8px #22d3ee;"></span>
+                    Agentic AI Development
+                </div>
+                <h3>Claude Code & MCP Servers — <span style="background:linear-gradient(135deg,#22d3ee,var(--primary));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">The New Stack</span></h3>
+                <p style="margin-top:16px;">I build agentic AI workflows using Claude Code for autonomous code generation and MCP (Model Context Protocol) servers to connect Claude to your tools — Notion, GitHub, Slack, databases — in real time. This is how AI stops being a chatbot and starts being a teammate.</p>
+                <a href="#contact" class="btn btn-ai" style="margin-top:24px;display:inline-flex;">Build an AI Agent <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="claude-mcp-tools">
+                <div class="claude-mcp-tool-card">
+                    <i class="fas fa-terminal"></i>
+                    <h5>Claude Code</h5>
+                    <p>Autonomous coding agent that reads, writes, and refactors code across your entire project with full context.</p>
+                </div>
+                <div class="claude-mcp-tool-card">
+                    <i class="fas fa-plug"></i>
+                    <h5>MCP Servers</h5>
+                    <p>Standard protocol connecting Claude to live tools — databases, APIs, file systems — so it can act, not just respond.</p>
+                </div>
+                <div class="claude-mcp-tool-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h5>Agent Orchestration</h5>
+                    <p>Multi-agent pipelines where Claude coordinates subtasks, delegates to tools, and returns structured results.</p>
+                </div>
+                <div class="claude-mcp-tool-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h5>Secure & Scoped</h5>
+                    <p>Deployed with strict permission scopes — agents only access the data and tools they need for the task.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- CTA strip -->
         <div class="ai-cta-strip">
             <div class="ai-cta-copy">
@@ -2526,7 +2702,7 @@
             <span class="section-label">Client Feedback</span>
             <h2 class="section-title">What Clients Say</h2>
             <div class="testimonials-grid">
-                <div class="testimonial-card"><p class="testimonial-text">Jaed rebuilt our lead pipeline end-to-end — automated intake, CRM sync, and a follow-up sequence that runs without anyone touching it. Organic traffic from his AEO work also grew 217% within six months. He thinks in systems, not just tasks.</p><div class="testimonial-author"><div class="author-avatar">SJ</div><div class="author-info"><h4>Sarah Johnson</h4><p>Marketing Director, TechStart Inc.</p></div></div></div>
+                <div class="testimonial-card"><p class="testimonial-text">Jaed rebuilt our lead pipeline end-to-end — automated intake, CRM sync, and a follow-up sequence that runs without anyone touching it. Organic traffic from his AEO work also grew 89% within six months. He thinks in systems, not just tasks.</p><div class="testimonial-author"><div class="author-avatar">SJ</div><div class="author-info"><h4>Sarah Johnson</h4><p>Marketing Director, TechStart Inc.</p></div></div></div>
                 <div class="testimonial-card"><p class="testimonial-text">We hired Jaed to get our content ranking and showing up in AI answers. Within weeks, we were being cited in Perplexity and Google AI Overviews for key terms our competitors owned. The quality of inbound leads from those channels improved dramatically.</p><div class="testimonial-author"><div class="author-avatar">MO</div><div class="author-info"><h4>Michael Owen</h4><p>Editor-in-Chief, Digital Pulse</p></div></div></div>
                 <div class="testimonial-card"><p class="testimonial-text">Jaed built us a Dockerized n8n stack that connects our CRM, Slack, and reporting tools in ways our previous vendor said weren't possible. Every workflow is documented, every alert is set up. It just runs — and when something needs changing, he explains it so we can own it.</p><div class="testimonial-author"><div class="author-avatar">DR</div><div class="author-info"><h4>David Rodriguez</h4><p>CTO, AppInnovate</p></div></div></div>
             </div>
@@ -2538,8 +2714,8 @@
             <div class="case-study-content">
                 <div class="case-study-images">
                     <div class="comparison-slider">
-                        <div class="comparison-item"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Analytics Before"><div class="comparison-label before">Before: Manual & Invisible</div></div>
-                        <div class="comparison-item"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Analytics After"><div class="comparison-label after">After: Automated & 217% Traffic Growth</div></div>
+                        <div class="comparison-item"><img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Manual Process Before"><div class="comparison-label before">Before: Manual & Invisible</div></div>
+                        <div class="comparison-item"><img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/dropcontact_lemlist_workflow_654a24157f.png" alt="n8n Automation After"><div class="comparison-label after">After: n8n Automated & 89% Traffic Growth</div></div>
                     </div>
                 </div>
                 <div class="case-study-text">
@@ -2743,6 +2919,8 @@
                     <li><a href="#industries">Industries</a></li>
                     <li><a href="#solutions">Solutions</a></li>
                     <li><a href="#ai-solutions">AI Integration</a></li>
+                    <li><a href="#ai-solutions" style="color:#22d3ee;font-weight:600;"><i class="fas fa-terminal" style="margin-right:5px;font-size:0.8rem;"></i>Claude Code</a></li>
+                    <li><a href="#ai-solutions" style="color:#22d3ee;font-weight:600;"><i class="fas fa-plug" style="margin-right:5px;font-size:0.8rem;"></i>MCP Servers</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="https://medium.com/@jaedgrandedelosa" target="_blank">Medium</a></li>
                     <li><a href="https://jaedd.neocities.org/Workspace/Resume" target="_blank">Resume</a></li>
@@ -3206,6 +3384,162 @@
         .process-step-content { padding: 28px 24px; }
         .process-connector { padding-left: 20px; }
         .process-cta { padding: 36px 24px; }
+    }
+
+    /* ─── N8N WORKFLOW SHOWCASE ─── */
+    .n8n-showcase {
+        margin-top: 80px;
+        padding-top: 60px;
+        border-top: 1px solid rgba(34,211,238,0.12);
+    }
+    .n8n-showcase-header {
+        margin-bottom: 48px;
+    }
+    .n8n-workflow-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 28px;
+    }
+    .n8n-workflow-card {
+        background: linear-gradient(135deg, var(--gray), var(--gray-light));
+        border: 1px solid rgba(34,211,238,0.15);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        transition: var(--transition);
+    }
+    .n8n-workflow-card:hover {
+        border-color: rgba(34,211,238,0.4);
+        transform: translateY(-6px);
+        box-shadow: 0 16px 48px rgba(34,211,238,0.1);
+    }
+    .n8n-workflow-img {
+        position: relative;
+        height: 180px;
+        overflow: hidden;
+        background: #141420;
+    }
+    .n8n-workflow-img img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: var(--transition);
+        filter: brightness(0.85);
+    }
+    .n8n-workflow-card:hover .n8n-workflow-img img {
+        transform: scale(1.06);
+        filter: brightness(0.95);
+    }
+    .n8n-workflow-badge {
+        position: absolute;
+        top: 12px; left: 12px;
+        background: rgba(0,0,0,0.75);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(34,211,238,0.35);
+        border-radius: 20px;
+        color: #22d3ee;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 5px 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .n8n-workflow-info {
+        padding: 24px 28px;
+    }
+    .n8n-workflow-info h4 {
+        color: var(--lighter);
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    .n8n-workflow-info p {
+        color: var(--gray-medium);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+    .n8n-workflow-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .n8n-workflow-tags span {
+        padding: 4px 10px;
+        background: rgba(34,211,238,0.08);
+        border: 1px solid rgba(34,211,238,0.2);
+        border-radius: 20px;
+        color: #22d3ee;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    /* ─── AI AUTOMATION ENHANCED ACCENTS ─── */
+    .trust-label {
+        color: var(--gray-medium);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+        display: block;
+    }
+
+    /* Claude Code & MCP section in AI solutions */
+    .claude-mcp-strip {
+        margin-top: 60px;
+        padding: 40px;
+        background: linear-gradient(135deg, rgba(34,211,238,0.07), rgba(225,29,72,0.07));
+        border: 1px solid rgba(34,211,238,0.2);
+        border-radius: var(--border-radius);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+    .claude-mcp-strip h3 {
+        font-size: 1.6rem;
+        color: var(--lighter);
+        margin-bottom: 12px;
+    }
+    .claude-mcp-strip p {
+        color: var(--gray-medium);
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    .claude-mcp-tools {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    .claude-mcp-tool-card {
+        background: rgba(34,211,238,0.06);
+        border: 1px solid rgba(34,211,238,0.2);
+        border-radius: var(--border-radius-sm);
+        padding: 20px;
+        transition: var(--transition);
+    }
+    .claude-mcp-tool-card:hover {
+        background: rgba(34,211,238,0.12);
+        border-color: rgba(34,211,238,0.4);
+        transform: translateY(-3px);
+    }
+    .claude-mcp-tool-card i {
+        font-size: 1.4rem;
+        color: #22d3ee;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .claude-mcp-tool-card h5 {
+        color: var(--lighter);
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+    .claude-mcp-tool-card p {
+        color: var(--gray-medium);
+        font-size: 0.82rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+    @media(max-width:768px) {
+        .claude-mcp-strip { grid-template-columns: 1fr; }
+        .n8n-workflow-grid { grid-template-columns: 1fr; }
     }
 
     /* ─── MUSIC TOGGLE BUTTON ─── */
