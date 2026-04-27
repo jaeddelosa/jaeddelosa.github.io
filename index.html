@@ -1332,6 +1332,154 @@
         .portfolio-link { color: var(--primary-light); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: var(--transition); }
         .portfolio-link:hover { gap: 12px; }
 
+        /* ─── N8N PORTFOLIO SHOWCASE ─── */
+        .n8n-portfolio-showcase {
+            margin-top: 80px;
+            padding-top: 64px;
+            border-top: 1px solid rgba(34,211,238,0.15);
+        }
+        .n8n-portfolio-header {
+            margin-bottom: 52px;
+        }
+        .n8n-portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 32px;
+        }
+        .n8n-portfolio-card {
+            background: linear-gradient(135deg, var(--gray), var(--gray-light));
+            border: 1px solid rgba(34,211,238,0.15);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            animation: fadeInUp 0.6s ease backwards;
+        }
+        .n8n-portfolio-card:hover {
+            border-color: rgba(34,211,238,0.45);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 56px rgba(34,211,238,0.12), 0 4px 16px rgba(0,0,0,0.3);
+        }
+        .n8n-portfolio-card:nth-child(1){animation-delay:0.1s;}
+        .n8n-portfolio-card:nth-child(2){animation-delay:0.2s;}
+        .n8n-portfolio-card:nth-child(3){animation-delay:0.3s;}
+        .n8n-portfolio-card:nth-child(4){animation-delay:0.4s;}
+        .n8n-portfolio-card:nth-child(5){animation-delay:0.5s;}
+        .n8n-portfolio-card:nth-child(6){animation-delay:0.6s;}
+        .n8n-portfolio-img {
+            position: relative;
+            height: 210px;
+            overflow: hidden;
+            background: #0d1117;
+        }
+        .n8n-portfolio-img img,
+        .n8n-portfolio-img svg {
+            width: 100%; height: 100%; display: block;
+            transition: var(--transition);
+        }
+        .n8n-portfolio-img img {
+            object-fit: cover;
+            filter: saturate(0.65) brightness(0.7);
+        }
+        .n8n-portfolio-card:hover .n8n-portfolio-img img {
+            transform: scale(1.07);
+            filter: saturate(0.85) brightness(0.8);
+        }
+        .n8n-portfolio-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(34,211,238,0.85), rgba(225,29,72,0.75));
+            opacity: 0; transition: var(--transition);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .n8n-portfolio-card:hover .n8n-portfolio-overlay { opacity: 1; }
+        .n8n-request-btn {
+            background: white;
+            color: #0a0a0f;
+            border: none;
+            border-radius: 50px;
+            padding: 14px 28px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex; align-items: center; gap: 10px;
+            transition: var(--transition);
+            font-family: 'DM Sans', sans-serif;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .n8n-request-btn:hover { transform: scale(1.05); box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
+        .n8n-portfolio-badge {
+            position: absolute;
+            top: 12px; left: 12px;
+            background: rgba(0,0,0,0.78);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(34,211,238,0.4);
+            border-radius: 20px;
+            color: #22d3ee;
+            font-size: 0.73rem;
+            font-weight: 700;
+            padding: 5px 13px;
+            display: flex; align-items: center; gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .n8n-portfolio-info {
+            padding: 26px 28px 28px;
+        }
+        .n8n-portfolio-info h4 {
+            color: var(--lighter);
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            font-family: 'Syne', sans-serif;
+        }
+        .n8n-portfolio-info p {
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+        .n8n-portfolio-tags {
+            display: flex; flex-wrap: wrap; gap: 6px;
+            margin-bottom: 20px;
+        }
+        .n8n-portfolio-tags span {
+            padding: 4px 11px;
+            background: rgba(34,211,238,0.07);
+            border: 1px solid rgba(34,211,238,0.22);
+            border-radius: 20px;
+            color: #22d3ee;
+            font-size: 0.73rem;
+            font-weight: 600;
+        }
+        .n8n-cta-link {
+            background: none;
+            border: none;
+            color: #22d3ee;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: var(--transition);
+            font-family: 'DM Sans', sans-serif;
+            padding: 0;
+        }
+        .n8n-cta-link:hover { gap: 14px; color: var(--primary-light); }
+
+        /* Template request banner */
+        .template-request-banner {
+            display: none;
+            background: linear-gradient(135deg, rgba(34,211,238,0.1), rgba(225,29,72,0.08));
+            border: 1px solid rgba(34,211,238,0.3);
+            border-radius: var(--border-radius-sm);
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            color: var(--lighter);
+            font-size: 0.95rem;
+            align-items: center;
+            gap: 12px;
+        }
+        .template-request-banner.visible { display: flex; }
+        .template-request-banner i { color: #22d3ee; font-size: 1.1rem; flex-shrink: 0; }
+        .template-request-banner strong { color: #22d3ee; }
+
         /* ─── TESTIMONIALS ─── */
         .testimonials-section { margin-top: 100px; }
 
@@ -1615,7 +1763,7 @@
                 <div class="hero-card">
                     <h3 style="color:var(--lighter);margin-bottom:20px;">Proven Track Record</h3>
                     <div class="stat-grid">
-                        <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Projects Delivered</span></div>
+                        <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Systems Deployed</span></div>
                         <div class="stat-item"><span class="stat-number">98%</span><span class="stat-label">Client Satisfaction</span></div>
                         <div class="stat-item"><span class="stat-number">20 hrs</span><span class="stat-label">Saved Per Week</span></div>
                         <div class="stat-item"><span class="stat-number">5+</span><span class="stat-label">Years Experience</span></div>
@@ -1727,7 +1875,7 @@
         <div class="sp-inner">
             <div class="sp-stat">
                 <span class="sp-num">50+</span>
-                <span class="sp-lbl">Projects Delivered</span>
+                <span class="sp-lbl">Systems Deployed</span>
             </div>
             <div class="sp-divider"></div>
             <div class="sp-stat">
@@ -2698,6 +2846,359 @@
             </div>
         </div>
 
+        <!-- n8n Workflow Templates Portfolio -->
+        <div class="n8n-portfolio-showcase">
+            <div class="n8n-portfolio-header">
+                <span class="section-label" style="margin-bottom:16px;">n8n Automation Templates</span>
+                <h3 style="font-size:2rem;color:var(--lighter);margin-bottom:12px;">Ready-to-Deploy <span style="background:linear-gradient(135deg,#22d3ee,var(--primary-light));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">n8n Workflows</span></h3>
+                <p style="color:var(--gray-medium);font-size:1.05rem;max-width:680px;">Battle-tested automation templates built for real business operations. Click any template to request it — I'll set it up for your stack.</p>
+            </div>
+            <div class="n8n-portfolio-grid">
+
+                <!-- Template 1 -->
+                <div class="n8n-portfolio-card">
+                    <div class="n8n-portfolio-img">
+                        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;background:#0d1117;">
+                          <defs>
+                            <filter id="glow1"><feGaussianBlur stdDeviation="2.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                          </defs>
+                          <!-- Grid bg -->
+                          <pattern id="g1" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e2433" stroke-width="0.5"/></pattern>
+                          <rect width="420" height="210" fill="url(#g1)"/>
+                          <!-- Connection lines -->
+                          <line x1="82" y1="105" x2="118" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <line x1="198" y1="105" x2="234" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <line x1="314" y1="105" x2="350" y2="105" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- Node 1: Gmail Trigger -->
+                          <rect x="20" y="82" width="62" height="46" rx="8" fill="#1a1f2e" stroke="#22d3ee" stroke-width="1.5" filter="url(#glow1)"/>
+                          <rect x="20" y="82" width="62" height="10" rx="8" fill="#22d3ee" opacity="0.8"/>
+                          <rect x="20" y="88" width="62" height="4" fill="#22d3ee" opacity="0.8"/>
+                          <text x="51" y="115" text-anchor="middle" font-family="monospace" font-size="7" fill="#22d3ee">Gmail</text>
+                          <text x="51" y="123" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Trigger</text>
+                          <!-- Node 2: AI Classify -->
+                          <rect x="118" y="78" width="80" height="54" rx="8" fill="#1a1f2e" stroke="#fb7185" stroke-width="1.5" filter="url(#glow1)"/>
+                          <rect x="118" y="78" width="80" height="10" rx="8" fill="#e11d48" opacity="0.8"/>
+                          <rect x="118" y="84" width="80" height="4" fill="#e11d48" opacity="0.8"/>
+                          <text x="158" y="108" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#fb7185">AI Classify</text>
+                          <text x="158" y="119" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Intent + Urgency</text>
+                          <!-- Node 3: Draft Reply -->
+                          <rect x="234" y="78" width="80" height="54" rx="8" fill="#1a1f2e" stroke="#a855f7" stroke-width="1.5"/>
+                          <rect x="234" y="78" width="80" height="10" rx="8" fill="#a855f7" opacity="0.7"/>
+                          <rect x="234" y="84" width="80" height="4" fill="#a855f7" opacity="0.7"/>
+                          <text x="274" y="108" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#c084fc">Draft Reply</text>
+                          <text x="274" y="119" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">OpenAI GPT-4</text>
+                          <!-- Node 4: CRM Route -->
+                          <rect x="350" y="82" width="52" height="46" rx="8" fill="#1a1f2e" stroke="#10b981" stroke-width="1.5"/>
+                          <rect x="350" y="82" width="52" height="10" rx="8" fill="#10b981" opacity="0.7"/>
+                          <rect x="350" y="88" width="52" height="4" fill="#10b981" opacity="0.7"/>
+                          <text x="376" y="112" text-anchor="middle" font-family="monospace" font-size="7" fill="#34d399">HubSpot</text>
+                          <text x="376" y="121" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Route</text>
+                          <!-- Labels -->
+                          <text x="210" y="175" text-anchor="middle" font-family="monospace" font-size="8" fill="#374151">AI Email Triage &amp; Auto-Reply Pipeline</text>
+                          <circle cx="20" cy="175" r="3" fill="#22d3ee" opacity="0.8"/>
+                          <text x="28" y="178" font-family="monospace" font-size="7" fill="#6b7280">4 nodes · n8n</text>
+                        </svg>
+                        <div class="n8n-portfolio-overlay">
+                            <button class="n8n-request-btn" onclick="requestN8nTemplate('AI Email Triage & Auto-Reply Workflow')">
+                                <i class="fas fa-paper-plane"></i> Request This Template
+                            </button>
+                        </div>
+                        <div class="n8n-portfolio-badge"><i class="fas fa-envelope-open-text"></i> Email Automation</div>
+                    </div>
+                    <div class="n8n-portfolio-info">
+                        <h4>AI Email Triage & Auto-Reply</h4>
+                        <p>Monitors your inbox, classifies incoming emails by intent and urgency using AI, drafts context-aware replies, and routes leads to CRM — no manual sorting required.</p>
+                        <div class="n8n-portfolio-tags"><span>Gmail</span><span>OpenAI</span><span>HubSpot</span><span>Webhook</span></div>
+                        <button class="n8n-cta-link" onclick="requestN8nTemplate('AI Email Triage & Auto-Reply Workflow')">
+                            Request This Template <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Template 2 -->
+                <div class="n8n-portfolio-card">
+                    <div class="n8n-portfolio-img">
+                        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;background:#0d1117;">
+                          <pattern id="g2" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e2433" stroke-width="0.5"/></pattern>
+                          <rect width="420" height="210" fill="url(#g2)"/>
+                          <!-- Shopify Webhook -->
+                          <rect x="14" y="80" width="66" height="50" rx="8" fill="#1a1f2e" stroke="#96bf48" stroke-width="1.5"/>
+                          <rect x="14" y="80" width="66" height="10" rx="8" fill="#96bf48" opacity="0.85"/>
+                          <rect x="14" y="86" width="66" height="4" fill="#96bf48" opacity="0.85"/>
+                          <text x="47" y="109" text-anchor="middle" font-family="monospace" font-size="7" fill="#96bf48">Shopify</text>
+                          <text x="47" y="119" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Cart Abandon</text>
+                          <!-- Arrow -->
+                          <line x1="80" y1="105" x2="108" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- Wait node -->
+                          <rect x="108" y="83" width="64" height="44" rx="8" fill="#1a1f2e" stroke="#f59e0b" stroke-width="1.5"/>
+                          <rect x="108" y="83" width="64" height="9" rx="8" fill="#f59e0b" opacity="0.8"/>
+                          <rect x="108" y="89" width="64" height="3" fill="#f59e0b" opacity="0.8"/>
+                          <text x="140" y="109" text-anchor="middle" font-family="monospace" font-size="7" fill="#fbbf24">Wait 1hr</text>
+                          <text x="140" y="119" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Timer</text>
+                          <!-- Arrow -->
+                          <line x1="172" y1="105" x2="200" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- AI Personalize -->
+                          <rect x="200" y="78" width="82" height="54" rx="8" fill="#1a1f2e" stroke="#fb7185" stroke-width="1.5"/>
+                          <rect x="200" y="78" width="82" height="10" rx="8" fill="#e11d48" opacity="0.8"/>
+                          <rect x="200" y="84" width="82" height="4" fill="#e11d48" opacity="0.8"/>
+                          <text x="241" y="107" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#fb7185">AI Personalize</text>
+                          <text x="241" y="117" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">+ Discount Logic</text>
+                          <!-- Arrow -->
+                          <line x1="282" y1="105" x2="310" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- Klaviyo Send -->
+                          <rect x="310" y="80" width="74" height="50" rx="8" fill="#1a1f2e" stroke="#22d3ee" stroke-width="1.5"/>
+                          <rect x="310" y="80" width="74" height="10" rx="8" fill="#22d3ee" opacity="0.7"/>
+                          <rect x="310" y="86" width="74" height="4" fill="#22d3ee" opacity="0.7"/>
+                          <text x="347" y="109" text-anchor="middle" font-family="monospace" font-size="7" fill="#22d3ee">Klaviyo</text>
+                          <text x="347" y="119" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Send Email</text>
+                          <!-- Label -->
+                          <text x="210" y="175" text-anchor="middle" font-family="monospace" font-size="8" fill="#374151">Shopify Abandoned Cart Recovery · 4 nodes</text>
+                          <circle cx="20" cy="175" r="3" fill="#96bf48" opacity="0.8"/>
+                          <text x="28" y="178" font-family="monospace" font-size="7" fill="#6b7280">E-Commerce · n8n</text>
+                        </svg>
+                        <div class="n8n-portfolio-overlay">
+                            <button class="n8n-request-btn" onclick="requestN8nTemplate('Shopify Abandoned Cart Recovery Workflow')">
+                                <i class="fas fa-paper-plane"></i> Request This Template
+                            </button>
+                        </div>
+                        <div class="n8n-portfolio-badge"><i class="fas fa-shopping-cart"></i> E-Commerce</div>
+                    </div>
+                    <div class="n8n-portfolio-info">
+                        <h4>Shopify Abandoned Cart Recovery</h4>
+                        <p>Triggers on cart abandonment, waits a configurable delay, then sends a personalized recovery email sequence — with optional discount logic and CRM tagging.</p>
+                        <div class="n8n-portfolio-tags"><span>Shopify</span><span>n8n</span><span>Klaviyo</span><span>AI</span></div>
+                        <button class="n8n-cta-link" onclick="requestN8nTemplate('Shopify Abandoned Cart Recovery Workflow')">
+                            Request This Template <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Template 3 -->
+                <div class="n8n-portfolio-card">
+                    <div class="n8n-portfolio-img">
+                        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;background:#0d1117;">
+                          <pattern id="g3" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e2433" stroke-width="0.5"/></pattern>
+                          <rect width="420" height="210" fill="url(#g3)"/>
+                          <!-- Twitter/X Monitor -->
+                          <rect x="14" y="80" width="68" height="50" rx="8" fill="#1a1f2e" stroke="#1d9bf0" stroke-width="1.5"/>
+                          <rect x="14" y="80" width="68" height="10" rx="8" fill="#1d9bf0" opacity="0.85"/>
+                          <rect x="14" y="86" width="68" height="4" fill="#1d9bf0" opacity="0.85"/>
+                          <text x="48" y="108" text-anchor="middle" font-family="monospace" font-size="7" fill="#60b4f7">X / Twitter</text>
+                          <text x="48" y="118" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Brand Monitor</text>
+                          <line x1="82" y1="105" x2="110" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- AI Sentiment -->
+                          <rect x="110" y="76" width="84" height="58" rx="8" fill="#1a1f2e" stroke="#fb7185" stroke-width="1.5"/>
+                          <rect x="110" y="76" width="84" height="10" rx="8" fill="#e11d48" opacity="0.8"/>
+                          <rect x="110" y="82" width="84" height="4" fill="#e11d48" opacity="0.8"/>
+                          <text x="152" y="106" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#fb7185">AI Sentiment</text>
+                          <text x="152" y="116" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">OpenAI Analysis</text>
+                          <text x="152" y="126" text-anchor="middle" font-family="monospace" font-size="6" fill="#4b5563">+/- / neutral</text>
+                          <line x1="194" y1="105" x2="220" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- IF node -->
+                          <polygon points="220,90 260,90 280,105 260,120 220,120 240,105" fill="#1a1f2e" stroke="#f59e0b" stroke-width="1.5"/>
+                          <text x="250" y="108" text-anchor="middle" font-family="monospace" font-size="7" fill="#fbbf24">IF</text>
+                          <!-- Positive path up -->
+                          <line x1="280" y1="98" x2="310" y2="80" stroke="#10b981" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.7"/>
+                          <rect x="310" y="62" width="72" height="36" rx="8" fill="#1a1f2e" stroke="#10b981" stroke-width="1.3"/>
+                          <text x="346" y="83" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#34d399">Log Only</text>
+                          <!-- Negative path down -->
+                          <line x1="280" y1="114" x2="310" y2="130" stroke="#e11d48" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.7"/>
+                          <rect x="310" y="112" width="72" height="40" rx="8" fill="#1a1f2e" stroke="#e11d48" stroke-width="1.5"/>
+                          <rect x="310" y="112" width="72" height="9" rx="8" fill="#e11d48" opacity="0.75"/>
+                          <rect x="310" y="118" width="72" height="3" fill="#e11d48" opacity="0.75"/>
+                          <text x="346" y="132" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#fb7185">Slack Alert</text>
+                          <text x="346" y="143" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Urgent</text>
+                          <!-- Label -->
+                          <text x="210" y="183" text-anchor="middle" font-family="monospace" font-size="8" fill="#374151">Social Monitoring &amp; Sentiment · 5 nodes</text>
+                        </svg>
+                        <div class="n8n-portfolio-overlay">
+                            <button class="n8n-request-btn" onclick="requestN8nTemplate('Social Media Monitoring & Sentiment Pipeline')">
+                                <i class="fas fa-paper-plane"></i> Request This Template
+                            </button>
+                        </div>
+                        <div class="n8n-portfolio-badge"><i class="fas fa-hashtag"></i> Social Listening</div>
+                    </div>
+                    <div class="n8n-portfolio-info">
+                        <h4>Social Monitoring & Sentiment Alerts</h4>
+                        <p>Tracks brand mentions across platforms, runs AI sentiment analysis on each mention, and fires Slack alerts for negative signals so your team can respond before issues escalate.</p>
+                        <div class="n8n-portfolio-tags"><span>Twitter/X</span><span>Slack</span><span>OpenAI</span><span>n8n</span></div>
+                        <button class="n8n-cta-link" onclick="requestN8nTemplate('Social Media Monitoring & Sentiment Pipeline')">
+                            Request This Template <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Template 4 -->
+                <div class="n8n-portfolio-card">
+                    <div class="n8n-portfolio-img">
+                        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;background:#0d1117;">
+                          <pattern id="g4" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e2433" stroke-width="0.5"/></pattern>
+                          <rect width="420" height="210" fill="url(#g4)"/>
+                          <!-- Webhook source -->
+                          <rect x="14" y="82" width="64" height="46" rx="8" fill="#1a1f2e" stroke="#22d3ee" stroke-width="1.5"/>
+                          <rect x="14" y="82" width="64" height="10" rx="8" fill="#22d3ee" opacity="0.75"/>
+                          <rect x="14" y="88" width="64" height="4" fill="#22d3ee" opacity="0.75"/>
+                          <text x="46" y="110" text-anchor="middle" font-family="monospace" font-size="7" fill="#22d3ee">Webhook</text>
+                          <text x="46" y="120" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Form/API</text>
+                          <line x1="78" y1="105" x2="106" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- Enrich node -->
+                          <rect x="106" y="78" width="80" height="54" rx="8" fill="#1a1f2e" stroke="#a855f7" stroke-width="1.5"/>
+                          <rect x="106" y="78" width="80" height="10" rx="8" fill="#a855f7" opacity="0.75"/>
+                          <rect x="106" y="84" width="80" height="4" fill="#a855f7" opacity="0.75"/>
+                          <text x="146" y="106" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#c084fc">Clearbit</text>
+                          <text x="146" y="116" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Enrich Contact</text>
+                          <line x1="186" y1="105" x2="214" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- Deduplicate -->
+                          <rect x="214" y="82" width="74" height="46" rx="8" fill="#1a1f2e" stroke="#f59e0b" stroke-width="1.5"/>
+                          <rect x="214" y="82" width="74" height="10" rx="8" fill="#f59e0b" opacity="0.75"/>
+                          <rect x="214" y="88" width="74" height="4" fill="#f59e0b" opacity="0.75"/>
+                          <text x="251" y="109" text-anchor="middle" font-family="monospace" font-size="7" fill="#fbbf24">Deduplicate</text>
+                          <text x="251" y="119" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Check Existing</text>
+                          <line x1="288" y1="105" x2="316" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- HubSpot push -->
+                          <rect x="316" y="78" width="80" height="54" rx="8" fill="#1a1f2e" stroke="#ff7a59" stroke-width="1.5"/>
+                          <rect x="316" y="78" width="80" height="10" rx="8" fill="#ff7a59" opacity="0.8"/>
+                          <rect x="316" y="84" width="80" height="4" fill="#ff7a59" opacity="0.8"/>
+                          <text x="356" y="106" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#ffb3a0">HubSpot CRM</text>
+                          <text x="356" y="116" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Upsert Contact</text>
+                          <text x="210" y="175" text-anchor="middle" font-family="monospace" font-size="8" fill="#374151">CRM Data Sync &amp; Auto-Enrichment · 4 nodes</text>
+                        </svg>
+                        <div class="n8n-portfolio-overlay">
+                            <button class="n8n-request-btn" onclick="requestN8nTemplate('CRM Data Sync & Enrichment Workflow')">
+                                <i class="fas fa-paper-plane"></i> Request This Template
+                            </button>
+                        </div>
+                        <div class="n8n-portfolio-badge"><i class="fas fa-database"></i> CRM Automation</div>
+                    </div>
+                    <div class="n8n-portfolio-info">
+                        <h4>CRM Data Sync & Auto-Enrichment</h4>
+                        <p>Pulls new contacts from forms or webhooks, enriches them with company data and LinkedIn info, deduplicates records, then pushes clean data into your CRM automatically.</p>
+                        <div class="n8n-portfolio-tags"><span>HubSpot</span><span>Airtable</span><span>Clearbit</span><span>n8n</span></div>
+                        <button class="n8n-cta-link" onclick="requestN8nTemplate('CRM Data Sync & Enrichment Workflow')">
+                            Request This Template <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Template 5 -->
+                <div class="n8n-portfolio-card">
+                    <div class="n8n-portfolio-img">
+                        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;background:#0d1117;">
+                          <pattern id="g5" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e2433" stroke-width="0.5"/></pattern>
+                          <rect width="420" height="210" fill="url(#g5)"/>
+                          <!-- Schedule trigger -->
+                          <rect x="10" y="85" width="60" height="40" rx="8" fill="#1a1f2e" stroke="#22d3ee" stroke-width="1.5"/>
+                          <rect x="10" y="85" width="60" height="9" rx="8" fill="#22d3ee" opacity="0.7"/>
+                          <rect x="10" y="91" width="60" height="3" fill="#22d3ee" opacity="0.7"/>
+                          <text x="40" y="110" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#22d3ee">Schedule</text>
+                          <text x="40" y="119" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Keyword List</text>
+                          <line x1="70" y1="105" x2="96" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- Google Search -->
+                          <rect x="96" y="80" width="76" height="50" rx="8" fill="#1a1f2e" stroke="#4285f4" stroke-width="1.5"/>
+                          <rect x="96" y="80" width="76" height="10" rx="8" fill="#4285f4" opacity="0.8"/>
+                          <rect x="96" y="86" width="76" height="4" fill="#4285f4" opacity="0.8"/>
+                          <text x="134" y="108" text-anchor="middle" font-family="monospace" font-size="7" fill="#80b0ff">Google Search</text>
+                          <text x="134" y="118" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">SERP Scrape</text>
+                          <line x1="172" y1="105" x2="198" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- AI Synthesize -->
+                          <rect x="198" y="76" width="84" height="58" rx="8" fill="#1a1f2e" stroke="#fb7185" stroke-width="1.5"/>
+                          <rect x="198" y="76" width="84" height="10" rx="8" fill="#e11d48" opacity="0.8"/>
+                          <rect x="198" y="82" width="84" height="4" fill="#e11d48" opacity="0.8"/>
+                          <text x="240" y="105" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#fb7185">AI Synthesize</text>
+                          <text x="240" y="115" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">GPT-4 Draft</text>
+                          <text x="240" y="125" text-anchor="middle" font-family="monospace" font-size="6" fill="#4b5563">SEO Structure</text>
+                          <line x1="282" y1="105" x2="308" y2="105" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- Notion save -->
+                          <rect x="308" y="82" width="72" height="46" rx="8" fill="#1a1f2e" stroke="#ffffff" stroke-width="1.3" opacity="0.7"/>
+                          <rect x="308" y="82" width="72" height="10" rx="8" fill="#ffffff" opacity="0.25"/>
+                          <rect x="308" y="88" width="72" height="4" fill="#ffffff" opacity="0.25"/>
+                          <text x="344" y="110" text-anchor="middle" font-family="monospace" font-size="7" fill="#d1d5db">Notion</text>
+                          <text x="344" y="120" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Save Draft</text>
+                          <text x="210" y="175" text-anchor="middle" font-family="monospace" font-size="8" fill="#374151">AI Content Research &amp; Draft Generator · 4 nodes</text>
+                        </svg>
+                        <div class="n8n-portfolio-overlay">
+                            <button class="n8n-request-btn" onclick="requestN8nTemplate('AI Content Research & Draft Generation Workflow')">
+                                <i class="fas fa-paper-plane"></i> Request This Template
+                            </button>
+                        </div>
+                        <div class="n8n-portfolio-badge"><i class="fas fa-pen-nib"></i> Content AI</div>
+                    </div>
+                    <div class="n8n-portfolio-info">
+                        <h4>AI Content Research & Draft Generator</h4>
+                        <p>Takes a topic or keyword, researches competitor content via web scraping, synthesizes key angles with AI, and outputs a structured SEO-ready draft — ready for human review.</p>
+                        <div class="n8n-portfolio-tags"><span>OpenAI</span><span>Notion</span><span>Google Search</span><span>n8n</span></div>
+                        <button class="n8n-cta-link" onclick="requestN8nTemplate('AI Content Research & Draft Generation Workflow')">
+                            Request This Template <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Template 6 -->
+                <div class="n8n-portfolio-card">
+                    <div class="n8n-portfolio-img">
+                        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;background:#0d1117;">
+                          <pattern id="g6" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#1e2433" stroke-width="0.5"/></pattern>
+                          <rect width="420" height="210" fill="url(#g6)"/>
+                          <!-- Project trigger -->
+                          <rect x="10" y="84" width="64" height="44" rx="8" fill="#1a1f2e" stroke="#22d3ee" stroke-width="1.5"/>
+                          <rect x="10" y="84" width="64" height="9" rx="8" fill="#22d3ee" opacity="0.7"/>
+                          <rect x="10" y="90" width="64" height="3" fill="#22d3ee" opacity="0.7"/>
+                          <text x="42" y="109" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#22d3ee">Project Done</text>
+                          <text x="42" y="119" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Webhook</text>
+                          <line x1="74" y1="106" x2="100" y2="106" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- Generate Invoice -->
+                          <rect x="100" y="79" width="80" height="54" rx="8" fill="#1a1f2e" stroke="#10b981" stroke-width="1.5"/>
+                          <rect x="100" y="79" width="80" height="10" rx="8" fill="#10b981" opacity="0.8"/>
+                          <rect x="100" y="85" width="80" height="4" fill="#10b981" opacity="0.8"/>
+                          <text x="140" y="107" text-anchor="middle" font-family="monospace" font-size="7" fill="#34d399">Gen Invoice</text>
+                          <text x="140" y="117" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Stripe / PDF</text>
+                          <line x1="180" y1="106" x2="206" y2="106" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+                          <!-- Send Email -->
+                          <rect x="206" y="84" width="70" height="44" rx="8" fill="#1a1f2e" stroke="#f59e0b" stroke-width="1.5"/>
+                          <rect x="206" y="84" width="70" height="9" rx="8" fill="#f59e0b" opacity="0.75"/>
+                          <rect x="206" y="90" width="70" height="3" fill="#f59e0b" opacity="0.75"/>
+                          <text x="241" y="110" text-anchor="middle" font-family="monospace" font-size="7" fill="#fbbf24">Send Email</text>
+                          <text x="241" y="120" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Gmail</text>
+                          <!-- Wait + Check -->
+                          <line x1="276" y1="106" x2="302" y2="90" stroke="#22d3ee" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.5"/>
+                          <rect x="302" y="68" width="66" height="34" rx="8" fill="#1a1f2e" stroke="#f59e0b" stroke-width="1.2"/>
+                          <text x="335" y="87" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#fbbf24">Wait 7 days</text>
+                          <text x="335" y="96" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Check Paid?</text>
+                          <!-- Slack overdue -->
+                          <line x1="276" y1="110" x2="302" y2="130" stroke="#e11d48" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.6"/>
+                          <rect x="302" y="114" width="72" height="36" rx="8" fill="#1a1f2e" stroke="#e11d48" stroke-width="1.5"/>
+                          <rect x="302" y="114" width="72" height="9" rx="8" fill="#e11d48" opacity="0.75"/>
+                          <rect x="302" y="120" width="72" height="3" fill="#e11d48" opacity="0.75"/>
+                          <text x="338" y="134" text-anchor="middle" font-family="monospace" font-size="7" fill="#fb7185">Slack Alert</text>
+                          <text x="338" y="143" text-anchor="middle" font-family="monospace" font-size="6" fill="#6b7280">Overdue</text>
+                          <text x="210" y="183" text-anchor="middle" font-family="monospace" font-size="8" fill="#374151">Invoice &amp; Payment Follow-up · 5 nodes</text>
+                        </svg>
+                        <div class="n8n-portfolio-overlay">
+                            <button class="n8n-request-btn" onclick="requestN8nTemplate('Invoice Generation & Payment Follow-up Workflow')">
+                                <i class="fas fa-paper-plane"></i> Request This Template
+                            </button>
+                        </div>
+                        <div class="n8n-portfolio-badge"><i class="fas fa-file-invoice-dollar"></i> Finance Ops</div>
+                    </div>
+                    <div class="n8n-portfolio-info">
+                        <h4>Invoice Generation & Payment Follow-up</h4>
+                        <p>Generates invoices from project completion triggers, sends them via email, then runs a timed follow-up sequence for unpaid invoices — with Slack notifications for overdue accounts.</p>
+                        <div class="n8n-portfolio-tags"><span>Stripe</span><span>Gmail</span><span>Slack</span><span>n8n</span></div>
+                        <button class="n8n-cta-link" onclick="requestN8nTemplate('Invoice Generation & Payment Follow-up Workflow')">
+                            Request This Template <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div style="text-align:center;margin-top:48px;">
+                <a href="https://payhip.com/autom8ic" target="_blank" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48"><rect width="48" height="48" rx="8" fill="#22d3ee"/><text x="24" y="33" text-anchor="middle" font-family="monospace" font-weight="900" font-size="20" fill="white">n8n</text></svg>
+                    Browse All n8n Templates on Payhip
+                </a>
+            </div>
+        </div>
+
         <!-- Testimonials -->
         <div class="testimonials-section">
             <span class="section-label">Client Feedback</span>
@@ -2858,6 +3359,10 @@
             </div>
             <div class="contact-form-container">
                 <h3>Send a Message</h3>
+                <div class="template-request-banner" id="templateRequestBanner">
+                    <i class="fas fa-robot"></i>
+                    <span>You're requesting: <strong id="templateRequestName"></strong> — mention this in your message below.</span>
+                </div>
                 <iframe src="https://tally.so/r/mOMAqa" class="jotform-iframe"></iframe>
             </div>
         </div>
@@ -3745,4 +4250,23 @@
     new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }});
     }, { threshold: 0.1 });
+
+    // ─── N8N TEMPLATE REQUEST HANDLER ───
+    function requestN8nTemplate(templateName) {
+        // Show the banner in the contact section
+        const banner = document.getElementById('templateRequestBanner');
+        const nameEl = document.getElementById('templateRequestName');
+        if (banner && nameEl) {
+            nameEl.textContent = templateName;
+            banner.classList.add('visible');
+        }
+        // Smooth scroll to contact section
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            window.scrollTo({
+                top: contactSection.getBoundingClientRect().top + window.pageYOffset - 80,
+                behavior: 'smooth'
+            });
+        }
+    }
 </script>
